@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +27,8 @@
                 <li><strong>Sitio: POR CONFIRMAR</strong></li>
             </ul>
         </div>
+         <!-- ubicacion del audio -->
+        <audio id="bgMusic" src="video/cancion.mp3" loop></audio>
     </header>
 
     <!-- Segundo video decorativo final CON BOTONES -->
@@ -46,10 +48,24 @@
         </a>
     </div>
 </div>
-     <!-- Música de fondo -->
-        <audio autoplay loop>
-            <source src="video/cancion.mp3" type="audio/mp3">
-        </audio>
+     <!-- Reproducir Música de fondo -->
+    
+<script>
+  const audio = document.getElementById("bgMusic");
 
+  function iniciarAudio() {
+    audio.play().catch((error) => {
+      console.warn("Reproducción bloqueada hasta interacción real:", error);
+    });
+
+    // Evita repetir
+    window.removeEventListener("scroll", iniciarAudio);
+    document.removeEventListener("pointerdown", iniciarAudio);
+  }
+
+  // Activadores compatibles con móviles y PC
+  window.addEventListener("scroll", iniciarAudio);
+  document.addEventListener("pointerdown", iniciarAudio);
+</script>
 </body>
 </html>
