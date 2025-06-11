@@ -61,7 +61,7 @@ ul {
 
 /* Botones */
 .btn {
-  display: inline-block;
+  display: FLEX; /*PARA QUE NO SE DESACOMODEN*/
   background-color: #f7227a;
   color: #fff;
   padding: 12px 25px;
