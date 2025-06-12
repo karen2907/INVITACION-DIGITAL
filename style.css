@@ -90,6 +90,7 @@ ul {
 
 /* Sección final del video */
 .video-final-section {
+  margin-top: 40px;
   position: relative;
   width: 100%;
   max-width: 100%;
