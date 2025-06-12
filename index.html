@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS XV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <!-- Video de fondo principal -->
+        <video autoplay loop muted class="back-video">
+            <source src="video/Video de 15 años Dayana1.mp4" type="video/mp4">
+        </video>
+
+        <!-- Contenido principal -->
+        <div class="container">
+            <h1>"Deléitate en el Señor, y él te concederá los deseos de tu corazón"</h1>
+            <h2>SALMO 37:4</h2>
+            <p>Hoy hace 15 años mis padres daban gracias a Dios por mi.</p>
+            <p>Hoy doy gracias a Dios por ellos, por cuidarme, tenerme paciencia y aconsejarme.</p>
+            <p>Doy gracias también a toda mi familia por hacer más especial este día.</p>
+            <p>A todos mis amigos por enseñarme el valor de una verdadera amistad.</p>
+            <ul>
+
+                <li><strong>Se llevara a cabo el día 27 de Septiembre de 2025</strong></li>
+                <li><strong>6:00 PM</strong></li>
+                <li><strong>Sitio: POR CONFIRMAR</strong></li>
+            </ul>
+        </div>
+        <!-- ubicacion del audio -->
+        <audio id="bgMusic" src="video/cancion.mp3" loop></audio>
+    </header>
+
+    <!-- Segundo video decorativo final CON BOTONES -->
+    <div class="video-final-section">
+        <video autoplay loop muted class="video-final">
+            <source src="video/Video de 15 años dayana2.mp4" type="video/mp4">
+        </video>
+
+        <div class="btn-group">
+            <a href="https://wa.me/573138564946?text=Hola,%20deseo%20confirmar%20mi%20asistencia%20a%20los%2015%20años%20de%20Dayana"
+                target="_blank" class="btn">
+                Confirmar Asistencia
+            </a>
+            <a href="https://www.google.com/maps?q=4.648625,-74.247893" target="_blank" class="btn">
+                Ver Ubicación
+            </a>
+        </div>
+    </div>
+    <!-- Botón invisible para capturar el primer tap o clic -->
+    <button id="audioButton"
+        style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;opacity:0;border:none;background:none;"></button>
+
+    <!-- Reproducir Música de fondo -->
+    <script>
+        const audio = document.getElementById("bgMusic");
+        const audioButton = document.getElementById("audioButton");
+
+        function iniciarAudio() {
+            audio.play().then(() => {
+                console.log("Audio iniciado");
+            }).catch((e) => {
+                console.warn("Bloqueado por el navegador", e);
+            });
+
+            document.removeEventListener("click", iniciarAudio);
+            document.removeEventListener("touchstart", iniciarAudio);
+            audioButton.remove(); // Quita el botón invisible
+        }
+
+        document.addEventListener("click", iniciarAudio);
+        document.addEventListener("touchstart", iniciarAudio);
+    </script>
+</body>
+
+</html>

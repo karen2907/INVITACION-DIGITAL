@@ -1,0 +1,160 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: 'Allura', cursive;
+  color: #fff;
+  background-color: #fdc2c2;
+  overflow-x: hidden;
+}
+
+/* Video de fondo */
+.back-video {
+  margin-top: 40px;
+  text-align: center;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0);
+  margin-bottom: 30px;
+}
+
+/* Contenedor de contenido */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.404);
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 5px;
+  box-shadow: 0 0 20px rgba(3, 20, 253, 0.863);
+  position: relative;
+  z-index: 2;
+}
+
+h1,h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #ffe0f0;
+}
+
+p,
+ul li {
+  font-size: 1.2em;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  color: #4d014d;
+}
+
+/* Estilo general de botones */
+.btn {
+  display: inline-block;
+  background-color: #ff334ee8;
+  color: #fff;
+  padding: 12px 25px;
+  margin: 15px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #e91e63;
+}
+
+/* Contenedor de botones */
+.btn-group {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Sección final del video */
+.video-final-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.video-final {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  margin-bottom: 30px;
+}
+
+/* MEDIA QUERIES RESPONSIVE */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+  h1,h2 {
+    font-size: 2em;
+  }
+
+  p,
+  ul li {
+    font-size: 1em;
+  }
+
+  .container {
+    margin-top: 40px;
+    padding: 30px 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .btn-group {
+    position: static;
+    transform: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 80%;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.7em;
+  }
+  .container {
+    padding: 20px 10px;
+  }
+
+  .video-final {
+    width: 95%;
+  }
+
+  .btn {
+    width: 90%;
+    font-size: 0.9em;
+  }
+}
