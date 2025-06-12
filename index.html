@@ -54,28 +54,34 @@
     </div>
     <!-- Botón invisible para capturar el primer tap o clic -->
     <button id="audioButton"
-        style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;opacity:0;border:none;background:none;"></button>
-
+        style="position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    background: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 16px;
+    color: #c0392b;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+</button>
     <!-- Reproducir Música de fondo -->
     <script>
-        const audio = document.getElementById("bgMusic");
-        const audioButton = document.getElementById("audioButton");
+  const audio = document.getElementById("bgMusic");
+  const activarBtn = document.getElementById("activarAudioBtn");
 
-        function iniciarAudio() {
-            audio.play().then(() => {
-                console.log("Audio iniciado");
-            }).catch((e) => {
-                console.warn("Bloqueado por el navegador", e);
-            });
+  activarBtn.addEventListener("click", () => {
+    audio.play().then(() => {
+      console.log("Audio iniciado");
+      activarBtn.style.display = "none"; // Oculta el botón
+    }).catch((e) => {
+      console.warn("Error al reproducir:", e);
+    });
+  });
+</script>
 
-            document.removeEventListener("click", iniciarAudio);
-            document.removeEventListener("touchstart", iniciarAudio);
-            audioButton.remove(); // Quita el botón invisible
-        }
-
-        document.addEventListener("click", iniciarAudio);
-        document.addEventListener("touchstart", iniciarAudio);
-    </script>
 </body>
 
 </html>
