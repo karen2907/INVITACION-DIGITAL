@@ -54,27 +54,29 @@
         </div>
     </div>
     <!-- Botón invisible para capturar el primer tap o clic -->
-    <button id="playButton" class="play-button" aria-label="Reproducir música">
-    ↓
-</button>
+    <button id="audioButton"
+        style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;opacity:0;border:none;background:none;"></button>
 
     <!-- Reproducir Música de fondo -->
     <script>
-    const audio = document.getElementById("bgMusic");
-    const playButton = document.getElementById("playButton");
+        const audio = document.getElementById("bgMusic");
+        const audioButton = document.getElementById("audioButton");
 
-    playButton.addEventListener("click", () => {
-        audio.play().then(() => {
-            playButton.style.opacity = "0";
-            setTimeout(() => {
-                playButton.remove();
-            }, 300); // esperar a que se desvanezca antes de quitarlo
-        }).catch((e) => {
-            console.error("Error al reproducir el audio:", e);
-        });
-    });
-</script>
+        function iniciarAudio() {
+            audio.play().then(() => {
+                console.log("Audio iniciado");
+            }).catch((e) => {
+                console.warn("Bloqueado por el navegador", e);
+            });
 
+            document.removeEventListener("click", iniciarAudio);
+            document.removeEventListener("touchstart", iniciarAudio);
+            audioButton.remove(); // Quita el botón invisible
+        }
+
+        document.addEventListener("click", iniciarAudio);
+        document.addEventListener("touchstart", iniciarAudio);
+    </script>
 </body>
 
 </html>
