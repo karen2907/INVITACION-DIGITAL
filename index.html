@@ -29,7 +29,7 @@
 
                 <li><strong>Se llevara a cabo el día 27 de Septiembre de 2025</strong></li>
                 <li><strong>en la CRA 102B #151-15 CONJUNTO RESIDENCIAL YAKALI</strong></li>
-                <li><strong>a las 7:00PM</strong></li>
+                <li><strong>a las 6:00PM</strong></li>
                 <li><strong>Lluvia de sobres✉️</strong></li>
             </ul>
         </div>
@@ -54,29 +54,27 @@
         </div>
     </div>
     <!-- Botón invisible para capturar el primer tap o clic -->
-    <button id="audioButton"
-        style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;opacity:0;border:none;background:none;"></button>
+    <button id="playButton" class="play-button" aria-label="Reproducir música">
+    ↓
+</button>
 
     <!-- Reproducir Música de fondo -->
     <script>
-        const audio = document.getElementById("bgMusic");
-        const audioButton = document.getElementById("audioButton");
+    const audio = document.getElementById("bgMusic");
+    const playButton = document.getElementById("playButton");
 
-        function iniciarAudio() {
-            audio.play().then(() => {
-                console.log("Audio iniciado");
-            }).catch((e) => {
-                console.warn("Bloqueado por el navegador", e);
-            });
+    playButton.addEventListener("click", () => {
+        audio.play().then(() => {
+            playButton.style.opacity = "0";
+            setTimeout(() => {
+                playButton.remove();
+            }, 300); // esperar a que se desvanezca antes de quitarlo
+        }).catch((e) => {
+            console.error("Error al reproducir el audio:", e);
+        });
+    });
+</script>
 
-            document.removeEventListener("click", iniciarAudio);
-            document.removeEventListener("touchstart", iniciarAudio);
-            audioButton.remove(); // Quita el botón invisible
-        }
-
-        document.addEventListener("click", iniciarAudio);
-        document.addEventListener("touchstart", iniciarAudio);
-    </script>
 </body>
 
 </html>
